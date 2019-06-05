@@ -1,0 +1,5 @@
+@ECHO OFF
+:: 这是BAT文件系统相关操作
+IF DEFINED ENV_HOWTOSHELL_DEBUG (
+  ECHO "引入fs.bat"
+)
