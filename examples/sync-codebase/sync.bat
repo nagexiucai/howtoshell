@@ -15,6 +15,17 @@ IF DEFINED ENV_HOWTOSHELL_TEST (
 
 :MAIN
 ECHO "开始"
+SETLOCAL
+SET projects=
+ECHO "current work directory" %CD%
+REM SET param=%1
+:: TODO: 如此跨脚本调用函数无效？
+CALL ..\..\libs\datetime.bat :Y4MMddhhmmssN
+REM CALL ..\..\libs\args.bat :ALL %param:~1,-1%
+:: 启用扩展（删除引号）
+CALL ..\..\libs/args.bat :ALL %~1
+ECHO "project[s] is(are) %projects%"
+ENDLOCAL
 ECHO "结束"
 
 :END
