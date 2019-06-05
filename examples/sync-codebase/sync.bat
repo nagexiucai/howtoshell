@@ -1,5 +1,23 @@
+:: %windir%\system32\cmd.exe
+:: encoding:gbk
 @ECHO OFF
-:: è¿™æ˜¯BATåŒæ­¥REPOçš„æ“ä½œ
+:: ÕâÊÇBATÍ¬²½REPOµÄ²Ù×÷
 IF DEFINED ENV_HOWTOSHELL_DEBUG (
-  ECHO "è¿›å…¥åŒæ­¥REPOâ€¦â€¦"
+  ECHO "½øÈëÍ¬²½REPO¡­¡­"
+)
+
+IF DEFINED ENV_HOWTOSHELL_TEST (
+  ECHO ">>>>>ÍêÕûÐÔ²âÊÔ<<<<<"
+  CALL :MAIN
+  ECHO "<<<<<ÍêÕûÐÔ²âÊÔ>>>>>"
+  GOTO END
+)
+
+:MAIN
+ECHO "¿ªÊ¼"
+ECHO "½áÊø"
+
+:END
+IF DEFINED ENV_HOWTOSHELL_DEBUG (
+  ECHO "ÍË³öÍ¬²½REPO¡£"
 )

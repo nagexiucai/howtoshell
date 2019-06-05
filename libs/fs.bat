@@ -1,5 +1,5 @@
 @ECHO OFF
-:: 杩欐槸BAT鏂囦欢绯荤粺鐩稿叧鎿嶄綔
+:: 这是BAT文件系统相关操作
 IF DEFINED ENV_HOWTOSHELL_DEBUG (
-  ECHO "寮曞叆fs.bat"
+  ECHO "引入fs.bat"
 )
