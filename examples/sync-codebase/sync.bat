@@ -1,6 +1,9 @@
 :: %windir%\system32\cmd.exe
 :: encoding:gbk
 @ECHO OFF
+
+SET cwd=%CD%
+CD /D %~dp0
 :: 这是BAT同步REPO的操作
 IF DEFINED ENV_HOWTOSHELL_DEBUG (
   ECHO "进入同步REPO……"
@@ -16,19 +19,13 @@ IF DEFINED ENV_HOWTOSHELL_TEST (
 :MAIN
 ECHO "开始"
 SETLOCAL
-SET projects=
-ECHO "current work directory" %CD%
-REM SET param=%1
 :: TODO: 如此跨脚本调用函数无效？
-CALL ..\..\libs\datetime.bat :Y4MMddhhmmssN
-REM CALL ..\..\libs\args.bat :ALL %param:~1,-1%
-:: 启用扩展（删除引号）
-CALL ..\..\libs/args.bat :ALL %~1
-ECHO "project[s] is(are) %projects%"
+CALL ..\..\libs\datetime.cmd :Y4MMddhhmmssN
 ENDLOCAL
 ECHO "结束"
 
 :END
+CD /D %cwd%
 IF DEFINED ENV_HOWTOSHELL_DEBUG (
   ECHO "退出同步REPO。"
 )

@@ -1,4 +1,5 @@
 @ECHO OFF
+SETLOCAL ENABLEEXTENSIONS
 :: 这是BAT日期时间相关操作
 IF DEFINED ENV_HOWTOSHELL_DEBUG (
   ECHO "引入datetime.bat"
@@ -14,6 +15,11 @@ IF DEFINED ENV_HOWTOSHELL_TEST (
   CALL :SecondSS
   CALL :YearMonthDayWeekHourMinuteSecondYYYYMMDDXNHHmmSS
   CALL :Y4MMddhhmmssN
+  GOTO END
+) ELSE (
+  IF DEFINED ENV_HOWTOSHELL_DEBUG (
+    ECHO "不可以直接运行，除非在测试模式下！"
+  )
   GOTO END
 )
 
@@ -82,3 +88,5 @@ ENDLOCAL
 EXIT /B 0
 
 :END
+ENDLOCAL
+EXIT /B 0
